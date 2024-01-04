@@ -1,5 +1,15 @@
 {
-  "dependencies": {
+    "scopedRegistries": [
+        {
+            "name": "spoiledcat",
+            "url": "https://registry.spoiledcat.com",
+            "scopes": [
+                "com.spoiledcat"
+            ]
+        }
+    ],
+    "dependencies": {
+    "com.ptc.vuforia.engine": "file:com.ptc.vuforia.engine-10.19.3.tgz",
     "com.spoiledcat.git": "1.0.18",
     "com.unity.collab-proxy": "2.0.0",
     "com.unity.feature.ar": "1.0.0",
@@ -45,14 +55,5 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  },
-  "scopedRegistries": [
-    {
-      "name": "spoiledcat",
-      "url": "https://registry.spoiledcat.com",
-      "scopes": [
-        "com.spoiledcat"
-      ]
-    }
-  ]
+  }
 }
