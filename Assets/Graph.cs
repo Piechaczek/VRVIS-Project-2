@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Graph : MonoBehaviour {
 
-    public Transform pointsParent;
+    public MeshFilter meshHolder;
     public GameObject pointPrefab;
-    private Dictionary<IntVector2, GameObject> points = new Dictionary<IntVector2, GameObject>();
-
 
     private int pointsPerFrame = 25; // amount of points to calculate per frame
     private int currentPointCount = 0;
+    private int currentTriangleCount = 0;
     private int gridSize = 100;
 
     private float domainXMin = -10;
@@ -22,6 +21,21 @@ public class Graph : MonoBehaviour {
 
     private Vector3 worldSpaceGraphOrigin = new Vector3(-0.5f, 0f, -0.5f);
     private Vector3 worldSpaceGraphSize = new Vector3(1f, 1f, 1f);
+
+    private Mesh mesh;
+    private Vector3[] meshVertices;
+    private int[] meshTriangles;
+
+    void Start() {
+        // Set up the empty mesh
+        mesh = new Mesh();
+        meshHolder.mesh = mesh;
+
+        meshVertices = new Vector3[2 * gridSize * gridSize];
+        meshTriangles = new int[(gridSize * gridSize - (gridSize + gridSize - 1)) * 12];
+        mesh.vertices = meshVertices;
+        mesh.triangles = meshTriangles;
+    }
 
     float Function(float x, float z) {
         // HARDCODED function for testing
@@ -45,14 +59,39 @@ public class Graph : MonoBehaviour {
                 float y = Function(x, z);
 
                 // figure out where to place the game object (relative to parent) and how big it should be
-                Vector3 worldCoords = DomainToWorldSpaceCoords(x, y, z);
-                Vector3 scale = new Vector3(1f / gridSize, 1f / gridSize, 1f / gridSize);
+                Vector3 meshCoords = DomainToWorldSpaceCoords(x, y, z);
 
-                // create and place the point
-                GameObject newPoint = Instantiate(pointPrefab, pointsParent);
-                newPoint.transform.localPosition = worldCoords;
-                newPoint.transform.localScale = scale;
-                points.Add(new IntVector2(gridX, gridZ), newPoint);
+                // add vertex and triangles to mesh
+                meshVertices[2 * currentPointCount] = meshCoords;     // front-facing vertex
+                meshVertices[2 * currentPointCount + 1] = meshCoords; // back-facing vertex
+                if (gridX != 0 && gridZ != 0) {
+                    // front-facing triangles
+                    // first triangle
+                    meshTriangles[currentTriangleCount * 3] = 2 * currentPointCount;  
+                    meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * 100;  
+                    meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * 101;
+                    currentTriangleCount++;
+                    // second triangle
+                    meshTriangles[currentTriangleCount * 3] = 2 * currentPointCount;  
+                    meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * 101;  
+                    meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * 1;
+                    currentTriangleCount++;
+                    // back-facing triangles
+                    // first triangle
+                    meshTriangles[currentTriangleCount * 3] = 2 * currentPointCount + 1;  
+                    meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * 101 + 1;  
+                    meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * 100 + 1;
+                    currentTriangleCount++;
+                    // second triangle
+                    meshTriangles[currentTriangleCount * 3] = 2 * currentPointCount + 1;  
+                    meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * 1 + 1;  
+                    meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * 101 + 1;
+                    currentTriangleCount++;
+
+                    mesh.vertices = meshVertices;
+                    mesh.triangles = meshTriangles;
+                    mesh.RecalculateNormals();
+                }
 
                 // update point count
                 currentPointCount++;
@@ -76,36 +115,12 @@ public class Graph : MonoBehaviour {
 
     public void OnTargetFound() {
         // show graph
-        pointsParent.gameObject.SetActive(true);
+        meshHolder.gameObject.SetActive(true);
     }
 
     public void OnTargetLost() {
         // hide graph
-        pointsParent.gameObject.SetActive(false);
-    }
-
-    // Custom class to be used as key
-    private class IntVector2 {
-
-        public int x;
-        public int y;
-
-        public IntVector2(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public override bool Equals(object obj) {
-            if (obj == null) return false;
-
-            IntVector2 cast = obj as IntVector2;
-            return cast.x == this.x && cast.y == this.y;
-        }
-
-        public override int GetHashCode() {
-            return System.HashCode.Combine(x, y);
-        }
-
+        meshHolder.gameObject.SetActive(false);
     }
 
 }
