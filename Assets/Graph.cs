@@ -30,7 +30,7 @@ public class Graph : MonoBehaviour {
 
     void Start() {
         ResetMesh();
-        RenderFunction(new Function1());
+        RenderFunction(new Function1(), new Vector2(-10, 10), new Vector2(-5, 5), new Vector2(-10, 10), 50, 25);
     }
 
     // Update is called once per frame
@@ -41,8 +41,8 @@ public class Graph : MonoBehaviour {
             {
                 if (currentPointCount < gridSize * gridSize) {
                     // figure out which point on the grid to draw next
-                    int gridX = currentPointCount % 100;
-                    int gridZ = Mathf.FloorToInt(currentPointCount / 100);
+                    int gridX = currentPointCount % gridSize;
+                    int gridZ = Mathf.FloorToInt(currentPointCount / gridSize);
 
                     // figure out what coords are that in the function's domain
                     Vector2 domainCoords = GridToDomainCoords(gridX, gridZ);
@@ -60,24 +60,24 @@ public class Graph : MonoBehaviour {
                         // front-facing triangles
                         // first triangle
                         meshTriangles[currentTriangleCount * 3] = 2 * currentPointCount;  
-                        meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * 100;  
-                        meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * 101;
+                        meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * gridSize;  
+                        meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * gridSize - 2 * 1;
                         currentTriangleCount++;
                         // second triangle
                         meshTriangles[currentTriangleCount * 3] = 2 * currentPointCount;  
-                        meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * 101;  
+                        meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * gridSize - 2 * 1;  
                         meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * 1;
                         currentTriangleCount++;
                         // back-facing triangles
                         // first triangle
                         meshTriangles[currentTriangleCount * 3] = 2 * currentPointCount + 1;  
-                        meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * 101 + 1;  
-                        meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * 100 + 1;
+                        meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * gridSize - 2 * 1 + 1;  
+                        meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * gridSize + 1;
                         currentTriangleCount++;
                         // second triangle
                         meshTriangles[currentTriangleCount * 3] = 2 * currentPointCount + 1;  
                         meshTriangles[currentTriangleCount * 3 + 1] = 2 * currentPointCount - 2 * 1 + 1;  
-                        meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * 101 + 1;
+                        meshTriangles[currentTriangleCount * 3 + 2] = 2 * currentPointCount - 2 * gridSize - 2 * 1 + 1;
                         currentTriangleCount++;
 
                         mesh.vertices = meshVertices;
@@ -90,6 +90,21 @@ public class Graph : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void RenderFunction(IGraphableFunction function, Vector2 domainX, Vector2 domainY, Vector2 domainZ, int gridSize, int pointsPerFrame) {
+        this.pointsPerFrame = pointsPerFrame;
+        this.gridSize = gridSize;
+        // In Unity Y is up, while in math Z is up - we swap these axes here
+        this.domainXMin = domainX.x;
+        this.domainXMax = domainX.y;
+        this.domainYMin = domainY.x;
+        this.domainYMax = domainY.y;
+        this.domainZMin = domainZ.x;
+        this.domainZMax = domainZ.y;
+
+        ResetMesh();
+        renderedFunction = function;
     }
 
     private void ResetMesh() {
@@ -105,11 +120,6 @@ public class Graph : MonoBehaviour {
 
         currentPointCount = 0;
         currentTriangleCount = 0;
-    }
-
-    private void RenderFunction(IGraphableFunction function) {
-        ResetMesh();
-        renderedFunction = function;
     }
 
     private Vector2 GridToDomainCoords(int gridX, int gridZ) {
