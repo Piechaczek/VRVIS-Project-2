@@ -22,6 +22,7 @@ public class UIController : MonoBehaviour
         // Here we define the list of viewable functions
         functions.Add(new Function1());
         functions.Add(new Function2());
+        functions.Add(new Function3());
 
 
         settingsPanel.SetActive(false);
@@ -63,7 +64,7 @@ public class UIController : MonoBehaviour
     }
 
     public void PreviousFunction() {
-        SelectFunction((currentFunctionIndex - 1) % functions.Count);
+        SelectFunction((currentFunctionIndex + functions.Count - 1) % functions.Count);
     }
 
     private void SelectFunction(int i) {
