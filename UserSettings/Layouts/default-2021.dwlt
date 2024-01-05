@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Git for Unity
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 503, y: 321}
   m_MaxSize: {x: 16192, y: 12117}
   vertical: 0
-  controlID: 22
+  controlID: 16
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 321}
   m_MaxSize: {x: 8096, y: 12117}
   vertical: 1
-  controlID: 23
+  controlID: 17
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 24
+  controlID: 18
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -461,13 +461,13 @@ MonoBehaviour:
     gitStatusEntries: []
     changedFilesText: No changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2024-01-04T18:02:53.278+01:00
+      updatedTimeString: 2024-01-04T23:24:52.095+01:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2024-01-04T18:02:42.963+01:00
+      updatedTimeString: 2024-01-04T23:24:44.080+01:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2024-01-04T18:02:16.762+01:00
+      updatedTimeString: 2024-01-04T23:21:41.942+01:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
@@ -2805,10 +2805,10 @@ MonoBehaviour:
     webTimeout: 0
     gitTimeout: 0
   locksView:
-    currentRemoteHasUpdate: 0
+    currentRemoteHasUpdate: 1
     currentStatusEntriesHasUpdate: 0
     currentLocksHasUpdate: 0
-    keychainHasUpdate: 0
+    keychainHasUpdate: 1
     locksControl:
       scroll: {x: 0, y: 0}
       gitLockEntries: []
@@ -2827,18 +2827,36 @@ MonoBehaviour:
             email: 
           lockedAtString: 
         gitFileStatus: 0
-        lockedAt: 
+        lockedAt: 1 sty 0001, 01:00
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 
-      cacheType: 0
+      updatedTimeString: 2024-01-04T22:02:03.983+01:00
+      cacheType: 1
     lastLocksChangedEvent:
-      updatedTimeString: 
-      cacheType: 0
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
+      cacheType: 7
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 
-      cacheType: 0
+      updatedTimeString: 2024-01-04T22:09:25.906+01:00
+      cacheType: 6
     lockedFiles: []
-    gitStatusEntries: []
+    gitStatusEntries:
+    - path: QCAR\somedata16
+      fullPath: C:\Users\wojte\UnityProjects\VRVIS-Project-2\QCAR\somedata16
+      projectPath: QCAR\somedata16
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: UserSettings\EditorUserSettings.asset
+      fullPath: C:\Users\wojte\UnityProjects\VRVIS-Project-2\UserSettings\EditorUserSettings.asset
+      projectPath: UserSettings\EditorUserSettings.asset
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: UserSettings\Layouts\default-2021.dwlt
+      fullPath: C:\Users\wojte\UnityProjects\VRVIS-Project-2\UserSettings\Layouts\default-2021.dwlt
+      projectPath: UserSettings\Layouts\default-2021.dwlt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
     currentUsername: 
     unlockFileMenuContent:
       m_Text: Release Lock
@@ -2865,13 +2883,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2024-01-04T18:02:53.278+01:00
+    updatedTimeString: 2024-01-04T23:24:52.095+01:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2024-01-04T18:02:53.785+01:00
+    updatedTimeString: 2024-01-04T23:24:52.040+01:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2024-01-04T18:02:42.963+01:00
+    updatedTimeString: 2024-01-04T23:24:44.080+01:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -2891,7 +2909,7 @@ MonoBehaviour:
     m_Tooltip: 
   repositoryProgressValue: 0
   repositoryProgressMessage: 
-  appManagerProgressValue: 0
+  appManagerProgressValue: 1
   appManagerProgressMessage: 
   primaryConnectionUsername: 
 --- !u!114 &13
@@ -2949,9 +2967,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ea670000
-    m_LastClickedID: 26602
-    m_ExpandedIDs: 00000000ea67000000ca9a3bffffff7f
+    m_SelectedIDs: e2670000
+    m_LastClickedID: 26594
+    m_ExpandedIDs: 00000000e267000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2979,7 +2997,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000e2670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3006,7 +3024,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -3023,7 +3041,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -3111,7 +3129,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0ee3ffff5ce3ffff48e7ffff5ee7ffff14ebffff62ebffff4eefffff64efffff46f1ffff96f1ffff82f5ffff9af5ffff9ef7ffff2cfbffff3267000044670000c86a0000da6a0000826c0000946c0000c86d0000da6d0000
+      m_ExpandedIDs: 1857ffff6657ffff525bffff685bffffd05dffff205effff0c62ffff2262ffff5486ffffa286ffff8e8affffa48affff608effffb08effffa092ffffbe92fffff498ffff4299ffff2e9dffff449dffff0ea0ffff5ca0ffff48a4ffff5ea4ffffa4a6fffff2a6ffffdeaafffff4aaffffaab4fffff6b4ffffe2b8fffff8b8ffff4cbbffff68bdffffb6bdffffa2c1ffffb8c1ffffd4c8ffff38d3ffff04d5ffff50d5ffff3cd9ffff54d9ffff96e1ffffc0eeffff2cfbffffea690000fc690000ea6b0000ca770000dc770000587900006a790000f07e0000027f00001c820000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -3127,7 +3145,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 11}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -3394,9 +3412,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.19232988, y: -0.2499876, z: 1.2921491}
+    m_Target: {x: -0.42336047, y: -0.13848758, z: 2.8791518}
     speed: 2
-    m_Value: {x: 0.19232988, y: -0.2499876, z: 1.2921491}
+    m_Value: {x: -0.42336047, y: -0.13848758, z: 2.8791518}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -3443,13 +3461,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.28233147, y: 0.39339232, z: -0.1283068, w: -0.8655192}
+    m_Target: {x: -0.10750232, y: 0.441734, z: -0.053371586, w: -0.8891178}
     speed: 2
-    m_Value: {x: -0.28232375, y: 0.3933816, z: -0.1283033, w: -0.8654956}
+    m_Value: {x: -0.10749885, y: 0.4417197, z: -0.05336986, w: -0.88908905}
   m_Size:
-    m_Target: 1.3074211
+    m_Target: 1.7045405
     speed: 2
-    m_Value: 1.3074211
+    m_Value: 1.7045405
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -3495,10 +3513,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 507
-    y: 94
-    width: 1532
-    height: 790
+    x: 363
+    y: 73
+    width: 1101
+    height: 535
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -3509,10 +3527,10 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1532, y: 769}
+  m_TargetSize: {x: 1101, y: 514}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
-  m_RenderIMGUI: 0
+  m_RenderIMGUI: 1
   m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
@@ -3524,10 +3542,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -766
-    m_HBaseRangeMax: 766
-    m_VBaseRangeMin: -384.5
-    m_VBaseRangeMax: 384.5
+    m_HBaseRangeMin: -550.5
+    m_HBaseRangeMax: 550.5
+    m_VBaseRangeMin: -257
+    m_VBaseRangeMax: 257
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -3536,7 +3554,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -3545,23 +3563,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1532
-      height: 769
+      width: 1101
+      height: 514
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 766, y: 384.5}
+    m_Translation: {x: 550.5, y: 257}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -766
-      y: -384.5
-      width: 1532
-      height: 769
+      x: -550.5
+      y: -257
+      width: 1101
+      height: 514
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1532, y: 790}
+  m_LastWindowPixelSize: {x: 1101, y: 535}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -3588,10 +3606,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2249
-    y: 726.5
-    width: 920
-    height: 250
+    x: 0
+    y: 629
+    width: 1465
+    height: 362
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
